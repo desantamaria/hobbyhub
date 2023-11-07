@@ -1,0 +1,56 @@
+.Card {
+    backdrop-filter: blur(2px);
+    background-color: white;
+    border-radius: 12px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 10px;
+    margin-bottom: 25px;
+    width: 75vw;
+    text-align: center;
+
+    transition: 0.5s;
+
+
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.Card:hover {
+    background-color: rgb(241, 237, 237);
+}
+
+.title {
+    color:black;
+    padding-left:30px;
+    font-size: 24px;
+}
+
+.author {
+    color:black;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.description {
+    color:black;  
+    text-align: justify;
+    text-justify: inter-word;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+
+
+.moreButton {
+    width: 30px;
+    float:right;
+
+}
+.moreButton:hover {
+    cursor: pointer;
+}
