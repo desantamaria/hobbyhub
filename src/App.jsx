@@ -13,8 +13,8 @@ const App = () => {
   const [posts, setPosts] = useState({
     id: "",
     title: "",
-    author: "",
-    description: "",
+    image_url: "",
+    content: "",
   });
 
   // Sets up routes

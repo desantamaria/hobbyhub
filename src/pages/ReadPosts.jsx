@@ -17,12 +17,13 @@ const ReadPosts = (props) => {
             id={post.id}
             created_at={post.created_at}
             title={post.title}
-            author={post.author}
-            description={post.description}
+            image_url={post.image_url}
+            content={post.content}
+            upvotes={post.upvotes}
           />
         ))
       ) : (
-        <h2>{"No Challenges Yet 😞"}</h2>
+        <h2>{"No Posts Yet"}</h2>
       )}
     </div>
   );

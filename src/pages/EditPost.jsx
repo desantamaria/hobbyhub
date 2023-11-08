@@ -14,7 +14,7 @@ const EditPost = ({ data }) => {
         setPost(postByID);
       }
     } else {
-      setPost({ title: "", author: "", description: "" });
+      setPost({ title: "", content: "", image_url: "" });
     }
   }, [data, id]);
 
@@ -34,16 +34,20 @@ const EditPost = ({ data }) => {
   const updatePost = async (event) => {
     event.preventDefault();
 
-    await supabase
-      .from("Posts")
-      .update({
-        title: post.title,
-        author: post.author,
-        description: post.description,
-      })
-      .eq("id", id);
+    if (post.title == "") {
+      alert("Required Fields are empty!");
+    } else {
+      await supabase
+        .from("Posts")
+        .update({
+          title: post.title,
+          image_url: post.image_url,
+          content: post.content,
+        })
+        .eq("id", id);
 
-    window.location = "/";
+      window.location = "/";
+    }
   };
 
   // DELETE post
@@ -57,8 +61,14 @@ const EditPost = ({ data }) => {
 
   return (
     <div className="EditPost">
+      <p>
+        <span> * Indicates required field</span>
+      </p>
       <form>
-        <label htmlFor="title">Title</label> <br />
+        <label htmlFor="title">
+          Title <span>*</span>
+        </label>
+        <br />
         <input
           type="text"
           id="title"
@@ -68,27 +78,27 @@ const EditPost = ({ data }) => {
         />
         <br />
         <br />
-        <label htmlFor="author">Author</label>
-        <br />
-        <input
-          type="text"
-          id="author"
-          name="author"
-          defaultValue={post.author}
-          onChange={handleChange}
-        />
-        <br />
-        <br />
-        <label htmlFor="description">Description</label>
+        <label htmlFor="content">Content</label>
         <br />
         <textarea
           rows="5"
           cols="50"
-          id="description"
-          name="description"
-          defaultValue={post.description}
+          id="content"
+          name="content"
+          defaultValue={post.content}
           onChange={handleChange}
         ></textarea>
+        <br />
+        <br />
+        <label htmlFor="image_url">Image URL</label>
+        <br />
+        <input
+          type="text"
+          id="image_url"
+          name="image_url"
+          defaultValue={post.image_url}
+          onChange={handleChange}
+        />
         <br />
         <input type="submit" value="Submit" onClick={updatePost} />
         <button className="deleteButton" onClick={deletePost}>

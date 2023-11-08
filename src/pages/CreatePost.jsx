@@ -3,7 +3,7 @@ import "./CreatePost.css";
 import { supabase } from "../client";
 
 const CreatePost = () => {
-  const [post, setPost] = useState({ title: "", author: "", description: "" });
+  const [post, setPost] = useState({ title: "", content: "", image_url: "" });
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -22,26 +22,36 @@ const CreatePost = () => {
 
     console.log(post);
 
-    const { error } = await supabase
-      .from("Posts")
-      .insert({
-        title: post.title,
-        author: post.author,
-        description: post.description,
-      })
-      .select();
+    if (post.title == "") {
+      alert("Required Fields are empty!");
+    } else {
+      const { error } = await supabase
+        .from("Posts")
+        .insert({
+          title: post.title,
+          content: post.content,
+          image_url: post.image_url,
+        })
+        .select();
 
-    if (error) {
-      console.log(error);
+      if (error) {
+        console.log(error);
+      }
+
+      window.location = "/";
     }
-
-    window.location = "/";
   };
 
   return (
     <div className="CreatePost">
+      <p>
+        <span> * Indicates required field</span>
+      </p>
       <form>
-        <label>Title</label> <br />
+        <label>
+          Title <span>*</span>{" "}
+        </label>{" "}
+        <br />
         <input
           type="text"
           id="title"
@@ -51,27 +61,27 @@ const CreatePost = () => {
         />
         <br />
         <br />
-        <label>Author</label>
+        <label>Content</label>
+        <br />
+        <textarea
+          name="content"
+          rows="5"
+          cols="50"
+          id="content"
+          value={post.content}
+          onChange={handleChange}
+        ></textarea>
+        <br />
+        <br />
+        <label>Image URL</label>
         <br />
         <input
           type="text"
-          id="author"
-          name="author"
-          value={post.author}
+          id="image_url"
+          name="image_url"
+          value={post.image_url}
           onChange={handleChange}
         />
-        <br />
-        <br />
-        <label>Description</label>
-        <br />
-        <textarea
-          name="description"
-          rows="5"
-          cols="50"
-          id="description"
-          value={post.description}
-          onChange={handleChange}
-        ></textarea>
         <br />
         <input type="submit" value="Submit" onClick={createPost} />
       </form>
