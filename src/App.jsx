@@ -46,10 +46,16 @@ const App = () => {
   return (
     <div className="App">
       <div className="navbar">
+        <div className="site-title">
+          <h5> HobbyHub</h5>
+        </div>
+        <input
+          className="search-bar"
+          type="text"
+          name="title"
+          placeholder="Search"
+        />
         <ul className="navlinks">
-          <li>
-            <h5> HobbyHub</h5>
-          </li>
           <Link className="link" to="/">
             <li>
               <h6>Explore Feed</h6>
