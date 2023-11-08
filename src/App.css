@@ -2,7 +2,7 @@
     font-family:Avenir, "Century Gothic", sans-serif;
     font-weight:100; 
     font-style:normal;
-    font-size: calc(10px + 2vmin);
+    font-size: calc(10px + 1vmin);
     color: black;
     justify-content: center;
     /* padding:20px; */
@@ -23,15 +23,44 @@
 
   .navlinks {
     display: flex;
-    justify-content: flex-start;
-    gap: 60px;
     align-items: center;
-
+    gap: 10px;
     list-style-type: none;
     margin: 0;    
   }
 
+  .link {
+    border: 1px solid transparent;
+    border-color: #646cff ;
+    transition: 0.25s;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 
+  .link:hover {
+    border-color: #FFF764;
+    color: #FFF764;
+  }
+
+.create-post {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #FFF764;
+    padding: 10px;
+    border-radius: 5px;
+    height: 15px;
+    transition: 0.25s;
+
+}
+
+.create-post:hover {
+    background-color: #d6d051;
+}
+
+.create-post:active {
+    background-color: #fbf8cb;
+}
 
 
   .header{
@@ -50,6 +79,9 @@
     display: flex;
     flex-direction: column;
   }
+
+
+  .Edi
   
   button {
     border-radius: 8px;

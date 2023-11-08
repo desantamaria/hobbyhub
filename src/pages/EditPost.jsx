@@ -56,7 +56,7 @@ const EditPost = ({ data }) => {
   };
 
   return (
-    <div>
+    <div className="EditPost">
       <form>
         <label htmlFor="title">Title</label> <br />
         <input

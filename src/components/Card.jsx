@@ -13,7 +13,7 @@ const Card = (props) => {
       <div className="Card">
         <p className="timestamp">{"Posted: " + props.created_at}</p>
         <h2 className="title">{props.title}</h2>
-        <h3 className="author">{"by " + props.author}</h3>
+        {/* <h3 className="author">{"by " + props.author}</h3> */}
       </div>
     </Link>
   );

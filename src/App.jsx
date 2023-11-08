@@ -50,14 +50,20 @@ const App = () => {
           <li>
             <h5> HobbyHub</h5>
           </li>
-          <li className="link">
-            <Link to="/">
+          <Link className="link" to="/">
+            <li>
               <h6>Explore Feed</h6>
-            </Link>
-          </li>
-          <li className="link">
+            </li>
+          </Link>
+          <li>
             <Link to="/new">
-              <h6> Create Post </h6>
+              <div className="create-post">
+                <h6> Create Post</h6>
+                <img
+                  className="create-post-icon"
+                  src="src/assets/tabler-icon-message-plus.svg"
+                />
+              </div>
             </Link>
           </li>
         </ul>
