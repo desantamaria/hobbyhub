@@ -49,12 +49,17 @@ const App = () => {
         <div className="site-title">
           <h5> HobbyHub</h5>
         </div>
-        <input
-          className="search-bar"
-          type="text"
-          name="title"
-          placeholder="Search"
-        />
+
+        <div>
+          <input
+            className="search-bar"
+            type="text"
+            name="title"
+            placeholder="Search"
+          />
+          <div></div>
+        </div>
+
         <ul className="navlinks">
           <Link className="link" to="/">
             <li>
