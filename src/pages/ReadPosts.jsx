@@ -10,9 +10,29 @@ const ReadPosts = (props) => {
     setFilteredResults(props.filteredData);
   }, [props]);
 
-  const sortByDate = () => {};
+  const sortByDate = () => {
+    const sortedFilteredResults = [...filteredResults].sort((a, b) => {
+      return new Date(b.created_at) - new Date(a.created_at);
+    });
 
-  const sortByLikes = () => {};
+    const sortedPosts = [...posts].sort((a, b) => {
+      return new Date(b.created_at) - new Date(a.created_at);
+    });
+
+    setFilteredResults(sortedFilteredResults);
+    setPosts(sortedPosts);
+  };
+
+  const sortByLikes = () => {
+    const sortedFilteredResults = [...filteredResults].sort(
+      (a, b) => b.upvotes - a.upvotes
+    );
+
+    const sortedPosts = [...posts].sort((a, b) => b.upvotes - a.upvotes);
+
+    setFilteredResults(sortedFilteredResults);
+    setPosts(sortedPosts);
+  };
 
   return (
     <div className="ReadPosts">
@@ -31,7 +51,7 @@ const ReadPosts = (props) => {
       </div>
       <div className="posts-container">
         {posts && posts.length > 0 ? (
-          props.searchInput.length > 0 ? (
+          props.searchInput.length > 0 && filteredResults.length > 0 ? (
             filteredResults.map((post, index) => (
               <Card
                 key={post.id}
