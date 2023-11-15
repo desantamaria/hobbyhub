@@ -10,21 +10,32 @@ const ReadPosts = (props) => {
 
   return (
     <div className="ReadPosts">
-      {posts && posts.length > 0 ? (
-        posts.map((post, index) => (
-          <Card
-            key={post.id}
-            id={post.id}
-            created_at={post.created_at}
-            title={post.title}
-            image_url={post.image_url}
-            content={post.content}
-            upvotes={post.upvotes}
-          />
-        ))
-      ) : (
-        <h2>{"No Posts Yet"}</h2>
-      )}
+      <div className="dropdown-container">
+        <div className="dropdown">
+          <button className="dropbtn">Sort By</button>
+          <div className="dropdown-content">
+            <p className="dropdown-option">Date Created</p>
+            <p className="dropdown-option">Likes</p>
+          </div>
+        </div>
+      </div>
+      <div className="posts-container">
+        {posts && posts.length > 0 ? (
+          posts.map((post, index) => (
+            <Card
+              key={post.id}
+              id={post.id}
+              created_at={post.created_at}
+              title={post.title}
+              image_url={post.image_url}
+              content={post.content}
+              upvotes={post.upvotes}
+            />
+          ))
+        ) : (
+          <h2>{"No Posts Yet"}</h2>
+        )}
+      </div>
     </div>
   );
 };

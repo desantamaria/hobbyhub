@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./PostAge.css";
 
 const PostAge = (props) => {
-  const originalDate = new Date(props.date);
+  const [postAge, setPostAge] = useState("");
 
+  const originalDate = new Date(props.date);
   const currentDate = new Date();
 
   // Calculate the difference in years
@@ -12,11 +13,23 @@ const PostAge = (props) => {
   const ageInMinutes = Math.floor(ageInSeconds / 60);
   const ageInHours = Math.floor(ageInMinutes / 60);
   const ageInDays = Math.floor(ageInHours / 24);
-  const ageInYears = Math.floor(ageInDays / 365.25); // Accounting for leap years
+  // const ageInYears = Math.floor(ageInDays / 365.25); // Accounting for leap years
 
-  //   console.log(ageInHours);
+  useEffect(() => {
+    if (ageInDays < 1) {
+      setPostAge(`${ageInHours} hours ago`);
+    } else if (ageInHours < 1) {
+      setPostAge(`${ageInMinutes} minutes ago`);
+    } else {
+      setPostAge(`${ageInDays} days ago`);
+    }
 
-  return <p className="PostAge">{ageInDays} days ago</p>;
+    if (ageInDays > 30) {
+      setPostAge(`${Math.floor(ageInDays / 30)} months ago`);
+    }
+  }, [ageInDays, ageInHours, ageInMinutes]);
+
+  return <p className="PostAge">{postAge}</p>;
 };
 
 export default PostAge;

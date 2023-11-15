@@ -38,6 +38,7 @@ const App = () => {
       const { data } = await supabase.from("Posts").select();
 
       setPosts(data);
+      console.log(data);
     };
 
     fetchPosts();
