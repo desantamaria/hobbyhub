@@ -13,14 +13,10 @@ const CreatePost = () => {
         [name]: value,
       };
     });
-
-    console.log(post);
   };
 
   const createPost = async (event) => {
     event.preventDefault();
-
-    console.log(post);
 
     if (post.title == "") {
       alert("Required Fields are empty!");

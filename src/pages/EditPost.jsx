@@ -26,8 +26,6 @@ const EditPost = ({ data }) => {
         [name]: value,
       };
     });
-
-    console.log(post);
   };
 
   // UPDATE post

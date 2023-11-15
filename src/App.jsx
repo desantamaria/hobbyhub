@@ -17,11 +17,20 @@ const App = () => {
     content: "",
   });
 
+  const [filteredResults, setFilteredResults] = useState([]);
+  const [searchInput, setSearchInput] = useState("");
+
   // Sets up routes
   let element = useRoutes([
     {
       path: "/",
-      element: <ReadPosts data={posts} />,
+      element: (
+        <ReadPosts
+          data={posts}
+          filteredData={filteredResults}
+          searchInput={searchInput}
+        />
+      ),
     },
     {
       path: "/edit/:id",
@@ -38,11 +47,25 @@ const App = () => {
       const { data } = await supabase.from("Posts").select();
 
       setPosts(data);
-      console.log(data);
     };
 
     fetchPosts();
   }, []);
+
+  const searchPosts = (searchValue) => {
+    setSearchInput(searchValue);
+    if (searchValue !== "") {
+      setSearchInput("");
+      const filteredData = posts.filter((post) =>
+        post.title.toLowerCase().includes(searchValue.toLowerCase())
+      );
+      setFilteredResults(filteredData);
+    } else {
+      setFilteredResults(posts);
+    }
+
+    setSearchInput(searchValue);
+  };
 
   return (
     <div className="App">
@@ -57,6 +80,7 @@ const App = () => {
             type="text"
             name="title"
             placeholder="Search"
+            onChange={(inputString) => searchPosts(inputString.target.value)}
           />
           <div></div>
         </div>

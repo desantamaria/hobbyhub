@@ -20,8 +20,6 @@ const Card = (props) => {
   const ageInDays = Math.floor(ageInHours / 24);
   const ageInYears = Math.floor(ageInDays / 365.25); // Accounting for leap years
 
-  console.log(ageInHours);
-
   const updateCount = async (event) => {
     event.preventDefault();
 
