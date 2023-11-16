@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import "./EditPost.css";
 import { supabase } from "../client";
 
@@ -59,9 +59,13 @@ const EditPost = ({ data }) => {
 
   return (
     <div className="EditPost">
+      <Link to={"../view/" + post.id}>
+        <button>Go Back</button>
+      </Link>
       <p>
         <span> * Indicates required field</span>
       </p>
+
       <form>
         <label htmlFor="title">
           Title <span>*</span>

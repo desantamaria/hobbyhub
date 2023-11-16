@@ -4,6 +4,8 @@ import { useRoutes } from "react-router-dom";
 import ReadPosts from "./pages/ReadPosts";
 import CreatePost from "./pages/CreatePost";
 import EditPost from "./pages/EditPost";
+import ViewPost from "./pages/ViewPost";
+
 import { Link } from "react-router-dom";
 import { supabase } from "./client";
 import { useEffect } from "react";
@@ -31,6 +33,10 @@ const App = () => {
           searchInput={searchInput}
         />
       ),
+    },
+    {
+      path: "/view/:id",
+      element: <ViewPost data={posts} />,
     },
     {
       path: "/edit/:id",
@@ -95,10 +101,10 @@ const App = () => {
             <Link to="/new">
               <div className="create-post">
                 <h6> Create Post</h6>
-                <img
+                {/* <img
                   className="create-post-icon"
                   src="src/assets/tabler-icon-message-plus.svg"
-                />
+                /> */}
               </div>
             </Link>
           </li>
