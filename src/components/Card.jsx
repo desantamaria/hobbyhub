@@ -35,7 +35,9 @@ const Card = (props) => {
     <Link to={"view/" + props.id}>
       <div className="Card">
         <div className="card-text">
-          <PostAge date={props.created_at} />
+          <div className="time">
+            <PostAge date={props.created_at} />
+          </div>
           <h2 className="title">{props.title}</h2>
         </div>
 

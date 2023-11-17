@@ -20,12 +20,23 @@ const PostAge = (props) => {
       setPostAge(`${ageInHours} hours ago`);
     } else if (ageInHours < 1) {
       setPostAge(`${ageInMinutes} minutes ago`);
+    } else if (ageInMinutes < 1) {
+      setPostAge(`${ageInSeconds} seconds ago`);
     } else {
       setPostAge(`${ageInDays} days ago`);
     }
 
     if (ageInDays > 30) {
       setPostAge(`${Math.floor(ageInDays / 30)} months ago`);
+    }
+    if (ageInMinutes < 60) {
+      setPostAge(`${ageInMinutes} minutes ago`);
+    }
+    if (ageInSeconds < 60) {
+      setPostAge(`${ageInSeconds} seconds ago`);
+    }
+    if (ageInDays > 365) {
+      setPostAge(`${Math.floor(ageInDays / 365)} years ago`);
     }
   }, [ageInDays, ageInHours, ageInMinutes]);
 

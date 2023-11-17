@@ -3,7 +3,12 @@ import "./CreatePost.css";
 import { supabase } from "../client";
 
 const CreatePost = () => {
-  const [post, setPost] = useState({ title: "", content: "", image_url: "" });
+  const [post, setPost] = useState({
+    title: "",
+    content: "",
+    image_url: "",
+    comments: [],
+  });
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -27,6 +32,7 @@ const CreatePost = () => {
           title: post.title,
           content: post.content,
           image_url: post.image_url,
+          comments: [],
         })
         .select();
 

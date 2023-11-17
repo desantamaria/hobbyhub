@@ -11,11 +11,7 @@
     margin-bottom: 25px;
     width: 60vw;
 
-    transition: background-color 0.5s;
-
-
-
-    
+    transition: background-color 0.5s;    
 }
 
 .view-card-header {
@@ -63,4 +59,47 @@
     border-radius: 5px;
     max-width: 80%;
     max-height: 80%;
+  }
+
+  .create-comment {
+    backdrop-filter: blur(2px);
+    background-color: white;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 25px;
+    width: 60vw;
+  }
+
+  .comment-field {
+    backdrop-filter: blur(2px);
+    background-color: #e0e1f7;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 10px;
+    max-width: 95%;
+  }
+
+  .comments-container {
+    backdrop-filter: blur(2px);
+    background-color: white;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 25px;
+    width: 60vw;
+  }
+
+
+  .post-content {
+    padding: 25px;
+  }
+
+  .comments {
+    backdrop-filter: blur(2px);
+    background-color: #e0e1f7;
+    border-radius: 12px;
+    padding: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    max-width: 95%;
   }
