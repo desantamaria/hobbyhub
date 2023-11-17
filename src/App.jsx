@@ -77,7 +77,7 @@ const App = () => {
     <div className="App">
       <div className="navbar">
         <div className="site-title">
-          <h5> HobbyHub</h5>
+          <h5> Gaming Hub</h5>
         </div>
 
         <div>
