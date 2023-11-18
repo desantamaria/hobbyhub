@@ -54,7 +54,7 @@ const EditPost = ({ data }) => {
 
     await supabase.from("Posts").delete().eq("id", id);
 
-    window.location = "http://localhost:5173/";
+    window.location = "/";
   };
 
   return (
