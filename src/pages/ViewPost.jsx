@@ -91,7 +91,7 @@ const ViewPost = ({ data }) => {
             <button className="view-upvotes" onClick={updateCount}>
               <img
                 className="create-post-icon"
-                src="../src/assets/tabler-icon-thumb-up.svg"
+                src="https://cdn-icons-png.flaticon.com/512/25/25297.png"
               />{" "}
               {count}
             </button>

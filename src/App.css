@@ -184,3 +184,7 @@
   .time {
     padding-left: 30px;
   }
+
+  .create-post-icon {
+    max-width: 20px;
+  }
