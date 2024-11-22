@@ -10,16 +10,6 @@ const CreatePost = () => {
     comments: [],
   });
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setPost((prev) => {
-      return {
-        ...prev,
-        [name]: value,
-      };
-    });
-  };
-
   const createPost = async (event) => {
     event.preventDefault();
 
@@ -42,6 +32,16 @@ const CreatePost = () => {
 
       window.location = "/";
     }
+  };
+
+    const handleChange = (event) => {
+    const { name, value } = event.target;
+    setPost((prev) => {
+      return {
+        ...prev,
+        [name]: value,
+      };
+    });
   };
 
   return (
